@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "325389409638",
+    "firebase_url": "https://fit-pack.firebaseio.com",
+    "project_id": "fit-pack",
+    "storage_bucket": "fit-pack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325389409638:android:453ba30991d530902abca7",
+        "android_client_info": {
+          "package_name": "com.example.fitpack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325389409638-9p9b0jqgdaopjdfoi0edjcvakfudcrp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitpack",
+            "certificate_hash": "0899879f119a4b1518d8dde3e0781ada47c01d6e"
+          }
+        },
+        {
+          "client_id": "325389409638-b5ciqd86f3r45n8hl130voa48v7tlsf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBveUOZFyD9HN-G7Tuzudgnah0SJFLO1Uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325389409638-b5ciqd86f3r45n8hl130voa48v7tlsf1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

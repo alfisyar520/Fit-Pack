@@ -3,4 +3,10 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="abu">#8B959A</color>
+    <color name="biru">#3C82FF</color>
+    <color name="pink1">#ffe2ec</color>
+    <color name="pink2">#eabecd</color>
+    <color name="putih">#ffffff</color>
 </resources>
