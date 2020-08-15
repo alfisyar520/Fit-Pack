@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardActivity">
+    tools:context=".Activity.DashboardActivity">
 
     <RelativeLayout
+        android:id="@+id/atas"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/background_warped">
@@ -32,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fitpack"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_centerInParent="true"
             >
 
@@ -47,6 +48,58 @@
 
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/atas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:padding="20dp"
+            android:background="@drawable/frame"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tanya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apakah anda ingin cek kesehatan keputihan anda sekarang?"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textColor="@color/hitam"
+                />
+
+            <LinearLayout
+                android:layout_below="@+id/tv_tanya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <Button
+                    android:id="@+id/btn_dash_cekKesehatan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ya"/>
+                <Button
+                    android:id="@+id/btn_dash_nanti"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nanti"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
 
 

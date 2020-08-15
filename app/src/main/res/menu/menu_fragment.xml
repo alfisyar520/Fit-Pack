@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cnb_unselectedColor="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/herbal"
+        android:title="Herbal"
+        android:icon="@drawable/ic_herbal_putih"
+        app:cnb_backgroundColor="@color/putih"
+        app:cnb_iconColor="@color/pink2"
+        app:cnb_textColor="@color/pink2"
+        />
+
+    <item
+        android:id="@+id/non_herbal"
+        android:title="Non-Herbal"
+        android:icon="@drawable/ic_non_herbal_putih"
+        app:cnb_backgroundColor="@color/putih"
+        app:cnb_iconColor="@color/pink2"
+        app:cnb_textColor="@color/pink2"
+        />
+</menu>
