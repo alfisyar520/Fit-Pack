@@ -57,7 +57,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:padding="20dp"
             android:background="@drawable/frame"
             android:orientation="vertical">
@@ -70,7 +72,7 @@
                 android:gravity="center"
                 android:layout_centerHorizontal="true"
                 android:textSize="20sp"
-                android:textColor="@color/hitam"
+                android:textColor="@color/pink3"
                 />
 
             <LinearLayout
@@ -85,13 +87,23 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Ya"/>
+                    android:text="Ya"
+                    android:background="@drawable/background_dashboard"
+                    android:textColor="@color/putih"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"/>
+
                 <Button
                     android:id="@+id/btn_dash_nanti"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Nanti"/>
+                    android:text="Nanti"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/background_dashboard"/>
 
             </LinearLayout>
 
