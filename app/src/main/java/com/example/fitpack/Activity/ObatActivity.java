@@ -1,6 +1,7 @@
 package com.example.fitpack.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -24,6 +25,8 @@ public class ObatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_obat);
 
         navigationBar = findViewById(R.id.nv_obat_navigationBar);
+
+
 
         if (savedInstanceState == null){
             navigationBar.setItemSelected(R.id.non_herbal, true);
@@ -58,4 +61,6 @@ public class ObatActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
