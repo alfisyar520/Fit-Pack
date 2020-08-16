@@ -54,8 +54,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_home_profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginRight="10dp"
                 android:src="@drawable/ic_user"/>
 
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:paddingLeft="7dp">
 
                 <TextView
                     android:id="@+id/tv_home_name"
@@ -71,6 +71,8 @@
                     android:layout_height="wrap_content"
                     android:text="nama"
                     android:textColor="@color/putih"
+                    android:textAllCaps="true"
+                    android:textSize="24sp"
                     />
 
                 <TextView
@@ -78,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="tanggal"
+                    android:textSize="20sp"
                     android:textColor="@color/putih"
                     />
 

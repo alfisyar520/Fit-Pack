@@ -1,15 +1,14 @@
 package com.example.fitpack.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.fitpack.HerbalFragment;
-import com.example.fitpack.NonHerbalFragment;
+import com.example.fitpack.Fragment.HerbalFragment;
+import com.example.fitpack.Fragment.NonHerbalFragment;
 import com.example.fitpack.R;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 

@@ -1,4 +1,4 @@
-package com.example.fitpack;
+package com.example.fitpack.Fragment;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitpack.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HerbalFragment#newInstance} factory method to
+ * Use the {@link NonHerbalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HerbalFragment extends Fragment {
+public class NonHerbalFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class HerbalFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HerbalFragment() {
+    public NonHerbalFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class HerbalFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HerbalFragment.
+     * @return A new instance of fragment NonHerbalFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HerbalFragment newInstance(String param1, String param2) {
-        HerbalFragment fragment = new HerbalFragment();
+    public static NonHerbalFragment newInstance(String param1, String param2) {
+        NonHerbalFragment fragment = new NonHerbalFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class HerbalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_herbal, container, false);
+        return inflater.inflate(R.layout.fragment_non_herbal, container, false);
     }
 }
