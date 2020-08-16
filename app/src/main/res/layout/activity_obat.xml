@@ -34,6 +34,7 @@
         />
 
     <FrameLayout
+        android:layout_below="@+id/nv_obat_navigationBar"
         android:id="@+id/fl_obat_fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

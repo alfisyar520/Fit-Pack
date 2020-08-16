@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.HomeActivity">
+    tools:context=".Activity.SaranActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topBar"
@@ -38,7 +38,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/ll_home_atas"
+        android:id="@+id/ll_saran_atas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/topBar"
@@ -53,7 +53,7 @@
             android:gravity="center">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_home_profile"
+                android:id="@+id/image_saran_profile"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginRight="10dp"
@@ -66,7 +66,7 @@
                 android:paddingLeft="7dp">
 
                 <TextView
-                    android:id="@+id/tv_home_name"
+                    android:id="@+id/tv_saran_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nama"
@@ -76,7 +76,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_home_tanggal"
+                    android:id="@+id/tv_saran_tanggal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="tanggal"
@@ -87,119 +87,104 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:layout_marginTop="10dp"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_logo_putih"
-            />
 
         <TextView
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Terindikasi :"
-            android:textColor="@color/putih"/>
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/tv_home_hasilIndikasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="hasil"
+            android:text="Saran"
             android:textStyle="bold"
+            android:textSize="30sp"
             android:textColor="@color/putih"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/ll_saran_atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        android:background="@drawable/frame"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_below="@+id/tv_tanya"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="10dp">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Warna :"
-                android:gravity="right"
-                android:textColor="@color/putih"/>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_weight="1"/>
+                android:textSize="15sp"
+                android:text="Jaga kebersihan Miss V"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:paddingTop="10dp"
+                android:textSize="15sp"
+                android:text="Ganti pakaian dalam 2-3 kali sehari"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
 
             <TextView
-                android:gravity="right"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bau :"
-                android:textColor="@color/putih"/>
+                android:paddingTop="10dp"
+                android:textSize="15sp"
+                android:text="Konsumsi makanan sehat seperti yogurt/jus"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textSize="15sp"
+                android:text="Hindari Vagina douche (sabun pembersih wanita)"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textSize="15sp"
+                android:text="Gunakan kondom saat sex"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textSize="15sp"
+                android:text="Jangan kenakan celana atau rok ketat"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textSize="15sp"
+                android:text="Rutin memeriksa diri ke dokter"
+                android:textColor="@color/pink3"
+                android:gravity="center"/>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_home_saran"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/background_home_saran"
-            android:gravity="center"
-            android:text="Saran"
-            android:textColor="@color/putih" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_below="@+id/ll_home_atas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_margin="10dp">
-
-        <Button
-            android:id="@+id/btn_home_obat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Obat"
-            android:textColor="@color/pink3"
-            android:background="@drawable/frame"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"/>
-
-        <Button
-            android:id="@+id/btn_home_history"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="History"
-            android:textColor="@color/pink3"
-            android:background="@drawable/frame"/>
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

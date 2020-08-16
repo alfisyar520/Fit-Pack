@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ImageView iv_profile;
     private TextView tv_name, tv_tanggal;
-    private Button btn_obat;
+    private Button btn_obat, btn_saran;
 
     private String mUser;
 
@@ -52,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         iv_profile = findViewById(R.id.image_home_profile);
         tv_name = findViewById(R.id.tv_home_name);
         tv_tanggal = findViewById(R.id.tv_home_tanggal);
+        btn_saran = findViewById(R.id.btn_home_saran);
 
         Toolbar toolbar = findViewById(R.id.topBar);
         setSupportActionBar(toolbar);
@@ -61,6 +62,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, ObatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_saran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, SaranActivity.class);
                 startActivity(intent);
             }
         });
