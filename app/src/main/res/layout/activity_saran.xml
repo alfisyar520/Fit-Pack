@@ -13,28 +13,6 @@
         android:background="@color/pink2"
         android:layout_gravity="center_horizontal">
 
-        <RelativeLayout
-            android:id="@+id/list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_home"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:layout_gravity="center"
-                android:id="@+id/nameprofile_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/profile_home"
-                android:textColor="#fff"
-                android:textAllCaps="true"/>
-
-        </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -70,10 +48,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nama"
-                    android:textColor="@color/putih"
                     android:textAllCaps="true"
-                    android:textSize="24sp"
-                    />
+                    android:textColor="@color/putih"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tv_saran_tanggal"

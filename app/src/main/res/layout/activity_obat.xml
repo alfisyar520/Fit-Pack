@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity.ObatActivity">
 
-
     <TextView
         android:id="@+id/tv_obat_kotak"
         android:layout_width="match_parent"
@@ -33,10 +32,20 @@
         app:cnb_menuResource="@menu/menu_fragment"
         />
 
-    <FrameLayout
+    <ScrollView
         android:layout_below="@+id/nv_obat_navigationBar"
-        android:id="@+id/fl_obat_fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fl_obat_fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"/>
+
+    </ScrollView>
 
 </RelativeLayout>
