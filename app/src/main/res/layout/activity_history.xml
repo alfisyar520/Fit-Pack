@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HistoryActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pink2"
+        android:layout_gravity="center_horizontal">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/ll_history_atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topBar"
+        android:background="@drawable/background_warped"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_history_profile"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_user"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="7dp">
+
+                <TextView
+                    android:id="@+id/tv_history_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nama"
+                    android:textAllCaps="true"
+                    android:textColor="@color/putih"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tv_history_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tanggal"
+                    android:textSize="20sp"
+                    android:textColor="@color/putih"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/putih"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/ll_history_atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        android:background="@drawable/frame"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_history_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pink2"
+            android:text="Select a Date"
+            android:gravity="center"
+            android:textSize="15sp"/>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
