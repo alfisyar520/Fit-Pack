@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private Button btn_nanti;
+    private Button btn_nanti, btn_sekarang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,20 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         btn_nanti = findViewById(R.id.btn_dash_nanti);
+        btn_sekarang = findViewById(R.id.btn_dash_cekKesehatan);
 
         btn_nanti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DashboardActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_sekarang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, BtActivity.class);
                 startActivity(intent);
             }
         });
