@@ -10,7 +10,7 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pink2"
+        android:background="@color/pink4"
         android:layout_gravity="center_horizontal">
 
     </androidx.appcompat.widget.Toolbar>
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:text="Jaga kebersihan Miss V"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
             <TextView
@@ -111,7 +111,7 @@
                 android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:text="Ganti pakaian dalam 2-3 kali sehari"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
             <TextView
@@ -120,7 +120,7 @@
                 android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:text="Konsumsi makanan sehat seperti yogurt/jus"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
             <TextView
@@ -129,7 +129,7 @@
                 android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:text="Hindari Vagina douche (sabun pembersih wanita)"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
             <TextView
@@ -138,7 +138,7 @@
                 android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:text="Gunakan kondom saat sex"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
             <TextView
@@ -147,7 +147,7 @@
                 android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:text="Jangan kenakan celana atau rok ketat"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
             <TextView
@@ -156,7 +156,7 @@
                 android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:text="Rutin memeriksa diri ke dokter"
-                android:textColor="@color/pink3"
+                android:textColor="@color/pink4"
                 android:gravity="center"/>
 
         </LinearLayout>

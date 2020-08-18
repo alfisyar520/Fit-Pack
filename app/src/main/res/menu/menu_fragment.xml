@@ -8,8 +8,8 @@
         android:title="Herbal"
         android:icon="@drawable/ic_herbal_putih"
         app:cnb_backgroundColor="@color/putih"
-        app:cnb_iconColor="@color/pink2"
-        app:cnb_textColor="@color/pink2"
+        app:cnb_iconColor="@color/pink4"
+        app:cnb_textColor="@color/pink4"
         />
 
     <item
@@ -17,7 +17,7 @@
         android:title="Non-Herbal"
         android:icon="@drawable/ic_non_herbal_putih"
         app:cnb_backgroundColor="@color/putih"
-        app:cnb_iconColor="@color/pink2"
-        app:cnb_textColor="@color/pink2"
+        app:cnb_iconColor="@color/pink4"
+        app:cnb_textColor="@color/pink4"
         />
 </menu>

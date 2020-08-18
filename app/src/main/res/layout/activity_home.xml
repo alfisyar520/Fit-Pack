@@ -10,7 +10,7 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pink2"
+        android:background="@color/pink4"
         android:layout_gravity="center_horizontal">
 
         <RelativeLayout
@@ -183,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Obat"
-            android:textColor="@color/pink3"
+            android:textColor="@color/pink4"
             android:background="@drawable/frame"/>
 
         <TextView
@@ -197,7 +197,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="History"
-            android:textColor="@color/pink3"
+            android:textColor="@color/pink4"
             android:background="@drawable/frame"/>
 
     </LinearLayout>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#eabecd</color>
+    <color name="colorPrimaryDark">#f98cb0</color>
     <color name="colorAccent">#03DAC5</color>
 
     <color name="hitam">#000000</color>
     <color name="abu">#8B959A</color>
     <color name="biru">#3C82FF</color>
-    <color name="pink1">#ffe2ec</color>
+    <color name="pink1">#ff6699</color>
     <color name="pink2">#eabecd</color>
     <color name="pink3">#ffa7c4</color>
+    <color name="pink4">#f98cb0</color>
     <color name="putih">#ffffff</color>
 </resources>
