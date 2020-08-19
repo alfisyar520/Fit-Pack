@@ -87,6 +87,7 @@ public class BtActivity extends AppCompatActivity {
         HasilTest postTest = new HasilTest(user.getId(), user.getUsername(), currentDate, currentTime);
         db.collection("Data Test").document().set(postTest);
         Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+
     }
 
     private void getDataUserFirebase() {
