@@ -12,12 +12,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitpack.Model.User;
 import com.example.fitpack.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,8 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
 
     //firebase
-    FirebaseAuth auth;
-    FirebaseUser firebaseUser;
+    private FirebaseAuth auth;
+    private FirebaseUser firebaseUser;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, PilihKategoriActivity.class);
                 startActivity(intent);
             }
         });
@@ -71,11 +78,35 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Intent toDashboard = new Intent(LoginActivity.this, DashboardActivity.class);
-                                        toDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(toDashboard);
-                                        finish();
-                                        //pd.dismiss();
+
+                                        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                                        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+                                        reference.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                User user = dataSnapshot.getValue(User.class);
+                                                if (user.getKategori().equals("personal")){
+                                                    Intent toDashboard = new Intent(LoginActivity.this, DashboardActivity.class);
+                                                    toDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    startActivity(toDashboard);
+                                                    finish();
+                                                    //pd.dismiss();
+                                                }else{
+                                                    Intent toDashboard = new Intent(LoginActivity.this, HomeActivity.class);
+                                                    toDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    startActivity(toDashboard);
+                                                    finish();
+                                                    //pd.dismiss();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Authentification failed!", Toast.LENGTH_SHORT).show();
                                         //pd.dismiss();

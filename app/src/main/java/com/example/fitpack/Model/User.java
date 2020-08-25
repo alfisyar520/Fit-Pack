@@ -4,14 +4,16 @@ public class User {
     private String id;
     private String username;
     private String imageUrl;
+    private String kategori;
 
     public User() {
     }
 
-    public User(String id, String username, String imageUrl) {
+    public User(String id, String username, String imageUrl, String kategori) {
         this.id = id;
         this.username = username;
         this.imageUrl = imageUrl;
+        this.kategori = kategori;
     }
 
     public String getId() {
@@ -36,5 +38,13 @@ public class User {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
 }

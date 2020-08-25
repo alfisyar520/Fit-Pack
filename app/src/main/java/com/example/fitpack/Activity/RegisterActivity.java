@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,13 +24,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText et_name, et_email, et_password, et_rePassword;
     private Button btn_signUp;
     private TextView tv_signIn;
+    private Spinner sp_kategori;
+    private String kategori;
 
     //firebase
     FirebaseAuth auth;
@@ -44,6 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
         et_rePassword = findViewById(R.id.input_register_repassword);
         btn_signUp = findViewById(R.id.btn_register_signUp);
         tv_signIn = findViewById(R.id.tv_register_login);
+
+        getIncomingIntent();
 
         tv_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    private void getIncomingIntent() {
+        kategori = getIntent().getStringExtra("kategori");
+    }
+
     private void register(final String username, String email, final String password){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -94,17 +107,27 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("id",userid);
                             hashMap.put("username", username);
                             hashMap.put("imageUrl","https://firebasestorage.googleapis.com/v0/b/handycrafts-shop.appspot.com/o/default.png?alt=media&token=a721ee3d-b599-40fc-aab7-f58cadc15861");
+                            hashMap.put("kategori", kategori);
 
 
                             databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
-                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        Toast.makeText(RegisterActivity.this, "Register Anda Berhasil!", Toast.LENGTH_SHORT).show();
-                                        startActivity(intent);
-                                        finish();
+                                        if (kategori.equals("personal")) {
+                                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            Toast.makeText(RegisterActivity.this, "Register Anda Berhasil!", Toast.LENGTH_SHORT).show();
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+                                            Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            Toast.makeText(RegisterActivity.this, "Register Anda Berhasil!", Toast.LENGTH_SHORT).show();
+                                            startActivity(intent);
+                                            finish();
+                                        }
+
                                     }
                                 }
                             });
