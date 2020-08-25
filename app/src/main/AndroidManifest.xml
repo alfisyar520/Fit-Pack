@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.PilihKategoriActivity"></activity>
+        <activity android:name=".Activity.HomeDokterActivity"></activity>
+        <activity android:name=".Activity.PilihKategoriActivity" />
         <activity android:name=".Activity.BtActivity" />
         <activity android:name=".Activity.HistoryActivity" />
         <activity android:name=".Activity.SaranActivity" />

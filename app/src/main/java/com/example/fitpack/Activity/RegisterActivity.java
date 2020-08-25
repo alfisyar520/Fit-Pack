@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             startActivity(intent);
                                             finish();
                                         } else {
-                                            Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                            Intent intent = new Intent(RegisterActivity.this, HomeDokterActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             Toast.makeText(RegisterActivity.this, "Register Anda Berhasil!", Toast.LENGTH_SHORT).show();
                                             startActivity(intent);

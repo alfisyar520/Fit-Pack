@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,13 +56,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         auth = FirebaseAuth.getInstance();
 
         firebaseUser = auth.getCurrentUser();
+        /*
         if (firebaseUser != null) {
-            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-            finish();
+            reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    User user = dataSnapshot.getValue(User.class);
+                    if (user.getKategori().equals("personal")){
+                        startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                        finish();
+                    }else{
+                        startActivity(new Intent(LoginActivity.this, HomeDokterActivity.class));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
         }
+
+         */
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     finish();
                                                     //pd.dismiss();
                                                 }else{
-                                                    Intent toDashboard = new Intent(LoginActivity.this, HomeActivity.class);
+                                                    Intent toDashboard = new Intent(LoginActivity.this, HomeDokterActivity.class);
                                                     toDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                     startActivity(toDashboard);
                                                     finish();
