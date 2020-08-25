@@ -126,7 +126,9 @@ public class HomeDokterActivity extends AppCompatActivity {
                     User user =snapshot.getValue(User.class);
 
                     if (!user.getId().equals(fUser.getUid())){
-                        mUsers.add(user);
+                        if (!user.getKategori().equals("dokter")){
+                            mUsers.add(user);
+                        }
                     }
                 }
 
