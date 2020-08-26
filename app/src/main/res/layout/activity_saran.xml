@@ -79,184 +79,148 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_below="@id/ll_saran_atas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/rl_saran_umum"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:padding="20dp"
-            android:background="@drawable/frame"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_below="@+id/tv_tanya"
+            <RelativeLayout
+                android:id="@+id/rl_saran_umum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/frame"
+                android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="Jaga kebersihan Miss V"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Ganti pakaian dalam 2-3 kali sehari"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="Secara Umum"
+                        android:textColor="@color/pink4"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Konsumsi makanan sehat seperti yogurt/jus"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="20sp"
+                        android:text="Makanan - Minuman :"
+                        android:textColor="@color/pink4"
+                        android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Hindari Vagina douche (sabun pembersih wanita)"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tv_saran_umum_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="15sp"
+                        android:text="Konsumsi makanan sehat seperti yogurt/jus"
+                        android:textColor="@color/pink4"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Gunakan kondom saat sex"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="20sp"
+                        android:text="Pakaian :"
+                        android:textColor="@color/pink4"
+                        android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Jangan kenakan celana atau rok ketat"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tv_saran_umum_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="15sp"
+                        android:text="Gunakan kondom saat sex"
+                        android:textColor="@color/pink4"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Rutin memeriksa diri ke dokter"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="20sp"
+                        android:text="Kebersihan :"
+                        android:textColor="@color/pink4"
+                        android:gravity="center"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_saran_umum_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="15sp"
+                        android:text="Rutin memeriksa diri ke dokter"
+                        android:textColor="@color/pink4"/>
 
+                </LinearLayout>
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_below="@id/rl_saran_umum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:padding="20dp"
-            android:background="@drawable/frame"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_below="@+id/tv_tanya"
+            <RelativeLayout
+                android:id="@+id/rl_saran_khusus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/frame"
+                android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="Jaga kebersihan Miss V"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Ganti pakaian dalam 2-3 kali sehari"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="Secara Khusus"
+                        android:textColor="@color/pink4"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Konsumsi makanan sehat seperti yogurt/jus"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tv_saran_khusus_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="17sp"
+                        android:text="saran khusus"
+                        android:textColor="@color/pink4"
+                        android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Hindari Vagina douche (sabun pembersih wanita)"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tv_saran_khusus_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:textSize="15sp"
+                        android:text="Konsumsi makanan sehat seperti yogurt/jus"
+                        android:textColor="@color/pink4"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Gunakan kondom saat sex"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Jangan kenakan celana atau rok ketat"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
+            </RelativeLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:textSize="15sp"
-                    android:text="Rutin memeriksa diri ke dokter"
-                    android:textColor="@color/pink4"
-                    android:gravity="center"/>
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-
-
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
