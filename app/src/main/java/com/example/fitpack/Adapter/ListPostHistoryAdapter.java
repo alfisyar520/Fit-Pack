@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fitpack.Activity.HomeActivity;
 import com.example.fitpack.Model.HasilTest;
 import com.example.fitpack.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -58,6 +59,28 @@ public class ListPostHistoryAdapter extends RecyclerView.Adapter<ListPostHistory
         db = FirebaseFirestore.getInstance();
 
         holder.current_time.setText(listHasil.get(position).getCurrentTime());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String hisTime = listHasil.get(holder.getAdapterPosition()).getCurrentTime();
+                CollectionReference docRefDataPost = db.collection("Data Test");
+                docRefDataPost.whereEqualTo("currentTime", hisTime).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (DocumentSnapshot documentSnapshot: task.getResult()){
+                                HasilTest hasilTest = documentSnapshot.toObject(HasilTest.class);
+                                Intent intent = new Intent(mContext, HomeActivity.class);
+                                intent.putExtra("tanggal", hasilTest.getCurrentDate());
+                                intent.putExtra("hasilDeteksi", hasilTest.getHasilDeteksi());
+                                mContext.startActivity(intent);
+                            }
+                        }
+                    }
+                });
+            }
+        });
 
         /*
         holder.itemView.setOnClickListener(new View.OnClickListener() {

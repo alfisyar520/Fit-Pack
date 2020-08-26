@@ -112,7 +112,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
