@@ -6,6 +6,7 @@ public class HasilTest {
     private String namePublisher;
     private String currentDate;
     private String currentTime;
+    private String hasilDeteksi;
 
     public HasilTest() {
     }
