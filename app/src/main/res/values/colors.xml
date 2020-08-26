@@ -12,4 +12,10 @@
     <color name="pink3">#ffa7c4</color>
     <color name="pink4">#f98cb0</color>
     <color name="putih">#ffffff</color>
+
+    <color name="coklat">#854836</color>
+    <color name="putihKeju">#fbe8e7</color>
+    <color name="hijau">#a1c45a</color>
+    <color name="abuAbu">#c1c1c1</color>
+    <color name="kuning">#e5ff00</color>
 </resources>

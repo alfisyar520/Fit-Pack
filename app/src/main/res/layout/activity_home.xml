@@ -47,8 +47,8 @@
         >
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="401dp"
+            android:layout_height="76dp"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -57,7 +57,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_user"/>
+                android:src="@drawable/ic_user" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -70,21 +70,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nama"
-                    android:textColor="@color/putih"
                     android:textAllCaps="true"
-                    android:textSize="24sp"
-                    />
+                    android:textColor="@color/putih"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/tv_home_tanggal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="tanggal"
-                    android:textSize="20sp"
                     android:textColor="@color/putih"
-                    />
-
+                    android:textSize="20sp" />
             </LinearLayout>
+
         </LinearLayout>
 
         <ImageView
@@ -113,6 +111,7 @@
             android:layout_height="wrap_content"
             android:text="hasil"
             android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/putih"/>
 
         <LinearLayout
@@ -123,6 +122,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/cobaSamping"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -130,10 +130,55 @@
                 android:gravity="right"
                 android:textColor="@color/putih"/>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_weight="1"/>
+            <FrameLayout
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_home_warna_bening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="Bening"
+                    android:textColor="@color/putih"/>
+
+                <TextView
+                    android:id="@+id/tv_home_warna_coklat"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/lingkaran_coklat" />
+
+                <TextView
+                    android:id="@+id/tv_home_warna_putih_susu"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/lingkaran_putih_susu" />
+
+                <TextView
+                    android:id="@+id/tv_home_warna_putih_keju"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/lingkaran_putih_keju" />
+
+                <TextView
+                    android:id="@+id/tv_home_warna_hijau"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/lingkaran_hijau" />
+
+                <TextView
+                    android:id="@+id/tv_home_warna_putih_kuning"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/lingkaran_kuning" />
+
+                <TextView
+                    android:id="@+id/tv_home_warna_putih_abu"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/lingkaran_abu" />
+
+            </FrameLayout>
 
             <TextView
                 android:layout_width="0dp"
@@ -148,10 +193,29 @@
                 android:text="Bau :"
                 android:textColor="@color/putih"/>
 
+            <FrameLayout
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_home_bau"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tanda_bau"/>
+
+                <ImageView
+                    android:id="@+id/iv_home_tidakBau"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tanda_tidak_bau"/>
+
+            </FrameLayout>
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_weight="1"/>
+                android:layout_weight="0.5"/>
 
         </LinearLayout>
 

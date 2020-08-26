@@ -28,7 +28,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class HomeActivity extends AppCompatActivity {
 
     private ImageView iv_profile;
-    private TextView tv_name, tv_tanggal;
+    private TextView tv_name, tv_tanggal, tv_hasil_indikasi;
+    private TextView tv_bening, tv_coklat, tv_putihSusu, tv_putihKeju, tv_hijau, tv_kuning, tv_abu;
+    private ImageView iv_bau, iv_tidakBau;
+    private String hasilDeteksi = "5";
     private Button btn_obat, btn_saran, btn_history;
 
     private String mUser;
@@ -58,6 +61,8 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.topBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+
+        inisialisasiWarnaBauIndikasi();
 
         btn_obat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,5 +122,83 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    public void inisialisasiWarnaBauIndikasi(){
+        tv_bening = findViewById(R.id.tv_home_warna_bening);
+        tv_coklat = findViewById(R.id.tv_home_warna_coklat);
+        tv_putihSusu = findViewById(R.id.tv_home_warna_putih_susu);
+        tv_putihKeju = findViewById(R.id.tv_home_warna_putih_keju);
+        tv_hijau = findViewById(R.id.tv_home_warna_hijau);
+        tv_kuning = findViewById(R.id.tv_home_warna_putih_kuning);
+        tv_abu = findViewById(R.id.tv_home_warna_putih_abu);
+        iv_bau = findViewById(R.id.iv_home_bau);
+        iv_tidakBau = findViewById(R.id.iv_home_tidakBau);
+        tv_hasil_indikasi = findViewById(R.id.tv_home_hasilIndikasi);
+
+        if (hasilDeteksi.equals("1")){
+            tv_coklat.setVisibility(View.GONE);
+            tv_putihSusu.setVisibility(View.GONE);
+            tv_putihKeju.setVisibility(View.GONE);
+            tv_hijau.setVisibility(View.GONE);
+            tv_kuning.setVisibility(View.GONE);
+            tv_abu.setVisibility(View.GONE);
+            iv_bau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Normal");
+        } else if (hasilDeteksi.equals("2")){
+            tv_bening.setVisibility(View.GONE);
+            tv_putihSusu.setVisibility(View.GONE);
+            tv_putihKeju.setVisibility(View.GONE);
+            tv_hijau.setVisibility(View.GONE);
+            tv_kuning.setVisibility(View.GONE);
+            tv_abu.setVisibility(View.GONE);
+            iv_bau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Normal");
+        } else if (hasilDeteksi.equals("3")){
+            tv_bening.setVisibility(View.GONE);
+            tv_coklat.setVisibility(View.GONE);
+            tv_putihKeju.setVisibility(View.GONE);
+            tv_hijau.setVisibility(View.GONE);
+            tv_kuning.setVisibility(View.GONE);
+            tv_abu.setVisibility(View.GONE);
+            iv_bau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Normal");
+        } else if (hasilDeteksi.equals("4")){
+            tv_bening.setVisibility(View.GONE);
+            tv_coklat.setVisibility(View.GONE);
+            tv_putihSusu.setVisibility(View.GONE);
+            tv_hijau.setVisibility(View.GONE);
+            tv_kuning.setVisibility(View.GONE);
+            tv_abu.setVisibility(View.GONE);
+            iv_bau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Abnormal");
+        } else if (hasilDeteksi.equals("5")){
+            tv_bening.setVisibility(View.GONE);
+            tv_coklat.setVisibility(View.GONE);
+            tv_putihSusu.setVisibility(View.GONE);
+            tv_putihKeju.setVisibility(View.GONE);
+            tv_kuning.setVisibility(View.GONE);
+            tv_abu.setVisibility(View.GONE);
+            iv_tidakBau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Abnormal");
+        } else if (hasilDeteksi.equals("6")){
+            tv_bening.setVisibility(View.GONE);
+            tv_coklat.setVisibility(View.GONE);
+            tv_putihSusu.setVisibility(View.GONE);
+            tv_putihKeju.setVisibility(View.GONE);
+            tv_hijau.setVisibility(View.GONE);
+            tv_abu.setVisibility(View.GONE);
+            iv_tidakBau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Abnormal");
+        } else {
+            tv_bening.setVisibility(View.GONE);
+            tv_coklat.setVisibility(View.GONE);
+            tv_putihSusu.setVisibility(View.GONE);
+            tv_putihKeju.setVisibility(View.GONE);
+            tv_hijau.setVisibility(View.GONE);
+            tv_kuning.setVisibility(View.GONE);
+            iv_tidakBau.setVisibility(View.GONE);
+            tv_hasil_indikasi.setText("Abnormal");
+        }
     }
 }
