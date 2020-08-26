@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.fitpack.Model.User;
 import com.example.fitpack.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,14 +26,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ImageView iv_profile;
     private TextView tv_name, tv_tanggal, tv_hasil_indikasi;
     private TextView tv_bening, tv_coklat, tv_putihSusu, tv_putihKeju, tv_hijau, tv_kuning, tv_abu;
-    private ImageView iv_bau, iv_tidakBau;
-    private String hasilDeteksi = "5";
+    private ImageView iv_bau, iv_tidakBau, iv_warna_kosong, iv_bau_kosong;
+    private String hasilDeteksi;
     private Button btn_obat, btn_saran, btn_history;
 
     private String mUser;
@@ -58,11 +61,32 @@ public class HomeActivity extends AppCompatActivity {
         btn_saran = findViewById(R.id.btn_home_saran);
         btn_history = findViewById(R.id.btn_home_history);
 
+        //not empty
+        tv_bening = findViewById(R.id.tv_home_warna_bening);
+        tv_coklat = findViewById(R.id.tv_home_warna_coklat);
+        tv_putihSusu = findViewById(R.id.tv_home_warna_putih_susu);
+        tv_putihKeju = findViewById(R.id.tv_home_warna_putih_keju);
+        tv_hijau = findViewById(R.id.tv_home_warna_hijau);
+        tv_kuning = findViewById(R.id.tv_home_warna_putih_kuning);
+        tv_abu = findViewById(R.id.tv_home_warna_putih_abu);
+        iv_bau = findViewById(R.id.iv_home_bau);
+        iv_tidakBau = findViewById(R.id.iv_home_tidakBau);
+        tv_hasil_indikasi = findViewById(R.id.tv_home_hasilIndikasi);
+
+        //empty
+        iv_warna_kosong = findViewById(R.id.iv_home_warnaKosong);
+        iv_bau_kosong = findViewById(R.id.iv_home_bauKosong);
+
         Toolbar toolbar = findViewById(R.id.topBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
-        inisialisasiWarnaBauIndikasi();
+        getIncomingIntent();
+        if (hasilDeteksi != null){
+            inisialisasiWarnaBauIndikasi();
+        } else {
+            inisialisasiDefault();
+        }
 
         btn_obat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,18 +148,26 @@ public class HomeActivity extends AppCompatActivity {
         return false;
     }
 
-    public void inisialisasiWarnaBauIndikasi(){
-        tv_bening = findViewById(R.id.tv_home_warna_bening);
-        tv_coklat = findViewById(R.id.tv_home_warna_coklat);
-        tv_putihSusu = findViewById(R.id.tv_home_warna_putih_susu);
-        tv_putihKeju = findViewById(R.id.tv_home_warna_putih_keju);
-        tv_hijau = findViewById(R.id.tv_home_warna_hijau);
-        tv_kuning = findViewById(R.id.tv_home_warna_putih_kuning);
-        tv_abu = findViewById(R.id.tv_home_warna_putih_abu);
-        iv_bau = findViewById(R.id.iv_home_bau);
-        iv_tidakBau = findViewById(R.id.iv_home_tidakBau);
-        tv_hasil_indikasi = findViewById(R.id.tv_home_hasilIndikasi);
+    public void getIncomingIntent(){
+        hasilDeteksi = getIntent().getStringExtra("hasilDeteksi");
+        tv_tanggal.setText(getIntent().getStringExtra("tanggal"));
+    }
 
+    private void inisialisasiDefault() {
+        tv_bening.setVisibility(View.GONE);
+        tv_coklat.setVisibility(View.GONE);
+        tv_putihSusu.setVisibility(View.GONE);
+        tv_putihKeju.setVisibility(View.GONE);
+        tv_hijau.setVisibility(View.GONE);
+        tv_kuning.setVisibility(View.GONE);
+        tv_abu.setVisibility(View.GONE);
+        iv_bau.setVisibility(View.GONE);
+        iv_tidakBau.setVisibility(View.GONE);
+        tv_hasil_indikasi.setText("-");
+        tv_tanggal.setText("-");
+    }
+
+    public void inisialisasiWarnaBauIndikasi(){
         if (hasilDeteksi.equals("1")){
             tv_coklat.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);
@@ -145,6 +177,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_abu.setVisibility(View.GONE);
             iv_bau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Normal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         } else if (hasilDeteksi.equals("2")){
             tv_bening.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);
@@ -154,6 +188,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_abu.setVisibility(View.GONE);
             iv_bau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Normal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         } else if (hasilDeteksi.equals("3")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
@@ -163,6 +199,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_abu.setVisibility(View.GONE);
             iv_bau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Normal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         } else if (hasilDeteksi.equals("4")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
@@ -172,6 +210,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_abu.setVisibility(View.GONE);
             iv_bau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Abnormal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         } else if (hasilDeteksi.equals("5")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
@@ -181,6 +221,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_abu.setVisibility(View.GONE);
             iv_tidakBau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Abnormal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         } else if (hasilDeteksi.equals("6")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
@@ -190,6 +232,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_abu.setVisibility(View.GONE);
             iv_tidakBau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Abnormal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         } else {
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
@@ -199,6 +243,8 @@ public class HomeActivity extends AppCompatActivity {
             tv_kuning.setVisibility(View.GONE);
             iv_tidakBau.setVisibility(View.GONE);
             tv_hasil_indikasi.setText("Abnormal");
+            iv_bau_kosong.setVisibility(View.GONE);
+            iv_warna_kosong.setVisibility(View.GONE);
         }
     }
 }

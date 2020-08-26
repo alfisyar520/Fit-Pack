@@ -31,6 +31,7 @@ public class BtActivity extends AppCompatActivity {
 
     private Button btn_connect;
     private String mUser, currentDate, currentTime;
+    private String hasilDeteksi = "1";
 
 
     //model
@@ -77,6 +78,8 @@ public class BtActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tambahHasilTest();
                 Intent intent = new Intent(BtActivity.this, HomeActivity.class);
+                intent.putExtra("hasilDeteksi",hasilDeteksi);
+                intent.putExtra("tanggal", currentDate);
                 startActivity(intent);
                 finish();
             }
@@ -84,7 +87,7 @@ public class BtActivity extends AppCompatActivity {
     }
 
     private void tambahHasilTest() {
-        HasilTest postTest = new HasilTest(user.getId(), user.getUsername(), currentDate, currentTime);
+        HasilTest postTest = new HasilTest(user.getId(), user.getUsername(), currentDate, currentTime, hasilDeteksi);
         db.collection("Data Test").document().set(postTest);
         Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show();
 

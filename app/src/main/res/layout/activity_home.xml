@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:text="tanggal"
                     android:textColor="@color/putih"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -134,6 +134,12 @@
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_home_warnaKosong"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_kosong"/>
 
                 <TextView
                     android:id="@+id/tv_home_warna_bening"
@@ -197,6 +203,12 @@
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_home_bauKosong"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_kosong"/>
 
                 <ImageView
                     android:id="@+id/iv_home_bau"

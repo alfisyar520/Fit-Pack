@@ -11,11 +11,12 @@ public class HasilTest {
     public HasilTest() {
     }
 
-    public HasilTest(String userID, String namePublisher, String currentDate, String currentTime) {
+    public HasilTest(String userID, String namePublisher, String currentDate, String currentTime, String hasilDeteksi) {
         this.userID = userID;
         this.namePublisher = namePublisher;
         this.currentDate = currentDate;
         this.currentTime = currentTime;
+        this.hasilDeteksi = hasilDeteksi;
     }
 
     public String getUserID() {
@@ -48,5 +49,13 @@ public class HasilTest {
 
     public void setCurrentTime(String currentTime) {
         this.currentTime = currentTime;
+    }
+
+    public String getHasilDeteksi() {
+        return hasilDeteksi;
+    }
+
+    public void setHasilDeteksi(String hasilDeteksi) {
+        this.hasilDeteksi = hasilDeteksi;
     }
 }
