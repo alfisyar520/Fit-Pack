@@ -1,18 +1,26 @@
 package com.example.fitpack.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fitpack.Activity.HistoryActivity;
 import com.example.fitpack.Model.HasilTest;
 import com.example.fitpack.Model.User;
 import com.example.fitpack.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -51,6 +59,35 @@ public class ListPostDaftarPasienAdapter extends RecyclerView.Adapter<ListPostDa
         db = FirebaseFirestore.getInstance();
 
         holder.tv_nama.setText(listPasien.get(position).getUsername());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userID = listPasien.get(holder.getAdapterPosition()).getId();
+                String nama = listPasien.get(holder.getAdapterPosition()).getUsername();
+
+                Intent intent = new Intent(mContext, HistoryActivity.class);
+                intent.putExtra("userId", userID);
+                intent.putExtra("namaPasien", nama);
+                mContext.startActivity(intent);
+
+                /*
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                })
+
+                 */
+            }
+        });
 
         /*
         holder.itemView.setOnClickListener(new View.OnClickListener() {

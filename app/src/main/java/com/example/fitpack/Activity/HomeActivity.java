@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView tv_name, tv_tanggal, tv_hasil_indikasi;
     private TextView tv_bening, tv_coklat, tv_putihSusu, tv_putihKeju, tv_hijau, tv_kuning, tv_abu;
     private ImageView iv_bau, iv_tidakBau, iv_warna_kosong, iv_bau_kosong;
-    private String hasilDeteksi;
+    private String hasilDeteksi, namaPasienDariDokter;
     private Button btn_obat, btn_saran, btn_history;
 
     private String mUser;
@@ -105,18 +105,33 @@ public class HomeActivity extends AppCompatActivity {
         btn_saran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, SaranActivity.class);
-                startActivity(intent);
+                if (hasilDeteksi != null){
+                    Intent intent = new Intent(HomeActivity.this, SaranActivity.class);
+                    intent.putExtra("hasilDeteksi", hasilDeteksi);
+                    intent.putExtra("tanggal", tv_tanggal.getText());
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(HomeActivity.this, "Silahkan cek kesehatan terlebih dahulu", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        btn_history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
-                startActivity(intent);
-            }
-        });
+        if (namaPasienDariDokter != null){
+            btn_history.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    HomeActivity.super.onBackPressed();
+                }
+            });
+        } else {
+            btn_history.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
@@ -125,7 +140,11 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                tv_name.setText(user.getUsername());
+                if (namaPasienDariDokter == null){
+                    tv_name.setText(user.getUsername());
+                } else {
+                    tv_name.setText(namaPasienDariDokter);
+                }
                 Glide.with(HomeActivity.this).load(user.getImageUrl()).into(iv_profile);
             }
 
@@ -156,6 +175,7 @@ public class HomeActivity extends AppCompatActivity {
     public void getIncomingIntent(){
         hasilDeteksi = getIntent().getStringExtra("hasilDeteksi");
         tv_tanggal.setText(getIntent().getStringExtra("tanggal"));
+        namaPasienDariDokter = getIntent().getStringExtra("namaPasien");
     }
 
     private void inisialisasiDefault() {

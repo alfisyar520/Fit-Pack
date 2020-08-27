@@ -46,6 +46,7 @@ public class HistoryActivity extends AppCompatActivity implements DatePickerDial
     private ImageView iv_profile;
 
     public String mUser;
+    public String userIdPasien, namaPasien;
 
     //model
     private User user;
@@ -80,6 +81,8 @@ public class HistoryActivity extends AppCompatActivity implements DatePickerDial
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        getIncomingIntent();
+
         tv_pickDate = findViewById(R.id.tv_history_date);
         tv_name = findViewById(R.id.tv_history_name);
         iv_profile = findViewById(R.id.image_history_profile);
@@ -99,7 +102,11 @@ public class HistoryActivity extends AppCompatActivity implements DatePickerDial
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                tv_name.setText(user.getUsername());
+                if (namaPasien == null){
+                    tv_name.setText(user.getUsername());
+                } else {
+                    tv_name.setText(namaPasien);
+                }
                 Glide.with(HistoryActivity.this).load(user.getImageUrl()).into(iv_profile);
             }
 
@@ -124,19 +131,37 @@ public class HistoryActivity extends AppCompatActivity implements DatePickerDial
         getDataFromFirestore();
     }
 
+    private void getIncomingIntent(){
+        userIdPasien = getIntent().getStringExtra("userId");
+        namaPasien = getIntent().getStringExtra("namaPasien");
+    }
+
     private void getDataFromFirestore(){
         db.collection("Data Test").orderBy("currentTime").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 downModelArrayList.clear();
-                for (DocumentSnapshot documentSnapshot: task.getResult()){
-                    hasilTest = documentSnapshot.toObject(HasilTest.class);
-                    if (Objects.equals(documentSnapshot.get("userID"), mUser)){
-                        if (Objects.equals(documentSnapshot.get("currentDate"), tv_pickDate.getText().toString())){
-                            downModelArrayList.add(hasilTest);
+
+                if (namaPasien != null){
+                    for (DocumentSnapshot documentSnapshot: task.getResult()){
+                        hasilTest = documentSnapshot.toObject(HasilTest.class);
+                        if (Objects.equals(documentSnapshot.get("userID"), userIdPasien)){
+                            if (Objects.equals(documentSnapshot.get("currentDate"), tv_pickDate.getText().toString())){
+                                downModelArrayList.add(hasilTest);
+                            }
+                        }
+                    }
+                } else {
+                    for (DocumentSnapshot documentSnapshot: task.getResult()){
+                        hasilTest = documentSnapshot.toObject(HasilTest.class);
+                        if (Objects.equals(documentSnapshot.get("userID"), mUser)){
+                            if (Objects.equals(documentSnapshot.get("currentDate"), tv_pickDate.getText().toString())){
+                                downModelArrayList.add(hasilTest);
+                            }
                         }
                     }
                 }
+
                 myAdapter = new ListPostHistoryAdapter(HistoryActivity.this, downModelArrayList);
                 recyclerView.setAdapter(myAdapter);
             }

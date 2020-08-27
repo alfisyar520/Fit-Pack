@@ -74,6 +74,7 @@ public class ListPostHistoryAdapter extends RecyclerView.Adapter<ListPostHistory
                                 Intent intent = new Intent(mContext, HomeActivity.class);
                                 intent.putExtra("tanggal", hasilTest.getCurrentDate());
                                 intent.putExtra("hasilDeteksi", hasilTest.getHasilDeteksi());
+                                intent.putExtra("namaPasien", hasilTest.getNamePublisher());
                                 mContext.startActivity(intent);
                             }
                         }

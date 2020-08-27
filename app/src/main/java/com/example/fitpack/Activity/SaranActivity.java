@@ -25,7 +25,7 @@ public class SaranActivity extends AppCompatActivity {
     private TextView tv_name, tv_tanggal, tv_umum1, tv_umum2, tv_umum3, tv_khusus1, tv_khusus2;
     private ImageView iv_profile;
     private String mUser;
-    private String hasilDeteksi = "3";
+    private String hasilDeteksi;
 
     //firebase
     private FirebaseUser firebaseUser;
@@ -50,6 +50,8 @@ public class SaranActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
+        getIncomingIntent();
+
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
@@ -71,6 +73,11 @@ public class SaranActivity extends AppCompatActivity {
         setUmum();
         setKhusus();
 
+    }
+
+    public void getIncomingIntent(){
+        hasilDeteksi = getIntent().getStringExtra("hasilDeteksi");
+        tv_tanggal.setText(getIntent().getStringExtra("tanggal"));
     }
 
     private void setKhusus() {

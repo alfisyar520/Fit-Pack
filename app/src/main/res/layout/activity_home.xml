@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:text="tanggal"
                     android:textColor="@color/putih"
-                    android:textSize="17sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
         </LinearLayout>
