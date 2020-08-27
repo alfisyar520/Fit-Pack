@@ -31,7 +31,7 @@ public class BtActivity extends AppCompatActivity {
 
     private Button btn_connect;
     private String mUser, currentDate, currentTime;
-    private String hasilDeteksi = "1";
+    private String hasilDeteksi = "7";
 
 
     //model

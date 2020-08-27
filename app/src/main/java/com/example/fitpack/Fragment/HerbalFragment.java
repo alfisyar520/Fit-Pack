@@ -1,6 +1,7 @@
 package com.example.fitpack.Fragment;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ public class HerbalFragment extends Fragment {
 
     private TextView tv_herbal1, tv_herbal2, tv_herbal3, tv_herbal4, tv_info;
     private Dialog mDialog;
-    private String hasilDeteksi="3";
+    private String hasilDeteksi;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,6 +71,9 @@ public class HerbalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_herbal, container, false);
+
+        getIncomingIntent();
+
         View view = inflater.inflate(R.layout.fragment_herbal, container, false);
         inisialisasi(view);
 
@@ -105,6 +109,10 @@ public class HerbalFragment extends Fragment {
         }
 
         return view;
+    }
+
+    private void getIncomingIntent(){
+        hasilDeteksi = getActivity().getIntent().getStringExtra("hasilDeteksi");
     }
 
     private void inisialisasi(View view) {

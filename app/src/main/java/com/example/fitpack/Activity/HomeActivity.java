@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.fitpack.Model.User;
@@ -91,8 +92,13 @@ public class HomeActivity extends AppCompatActivity {
         btn_obat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ObatActivity.class);
-                startActivity(intent);
+                if (hasilDeteksi != null){
+                    Intent intent = new Intent(HomeActivity.this, ObatActivity.class);
+                    intent.putExtra("hasilDeteksi", hasilDeteksi);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(HomeActivity.this, "Silahkan cek kesehatan terlebih dahulu", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

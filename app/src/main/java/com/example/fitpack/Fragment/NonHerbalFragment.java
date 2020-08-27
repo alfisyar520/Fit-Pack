@@ -23,7 +23,7 @@ public class NonHerbalFragment extends Fragment {
 
     private TextView tv_nonHerbal1, tv_nonHerbal2, tv_nonHerbal3, tv_nonHerbal4, tv_nonHerbal5, tv_info;
     private Dialog mDialog;
-    private String hasilDeteksi="2";
+    private String hasilDeteksi;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +69,8 @@ public class NonHerbalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getIncomingIntent();
+
         View view = inflater.inflate(R.layout.fragment_non_herbal, container, false);
         inisialisasi(view);
 
@@ -133,6 +135,10 @@ public class NonHerbalFragment extends Fragment {
         }
 
         return view;
+    }
+
+    private void getIncomingIntent(){
+        hasilDeteksi = getActivity().getIntent().getStringExtra("hasilDeteksi");
     }
 
     private void inisialisasi(View view) {
