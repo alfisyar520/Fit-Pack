@@ -6,10 +6,12 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +42,8 @@ public class HomeDokterActivity extends AppCompatActivity {
     private TextView tv_namaDokter;
     private ImageView iv_profil;
 
+    private SwipeRefreshLayout refreshLayout;
+
     public String mUser;
     private List<User> mUsers;
 
@@ -67,7 +71,6 @@ public class HomeDokterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser().getUid();
         storage = FirebaseStorage.getInstance();
-        //hasilTest = new HasilTest();
         user = new User();
         mUsers = new ArrayList<>();
 
@@ -81,6 +84,21 @@ public class HomeDokterActivity extends AppCompatActivity {
 
         tv_namaDokter = findViewById(R.id.tv_homeDokter_namaDokter);
         iv_profil = findViewById(R.id.image_homeDokter_profile);
+        refreshLayout = findViewById(R.id.swapRefresh);
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshLayout.setRefreshing(false);
+                        myAdapter.notifyDataSetChanged();
+                        getDataFromFirestore();
+                    }
+                }, 1000);
+            }
+        });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
@@ -156,7 +174,9 @@ public class HomeDokterActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-
+            case R.id.menu_refresh:
+                getDataFromFirestore();
+                return true;
         }
         return false;
     }

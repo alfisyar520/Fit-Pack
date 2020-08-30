@@ -89,13 +89,21 @@
         android:background="@drawable/frame"
         android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_homeDokter_hasil"
-            android:paddingTop="50dp"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swapRefresh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_cardview_pasien"
-            />
+            android:layout_height="match_parent"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_homeDokter_hasil"
+                android:paddingTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_cardview_pasien"
+                />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </RelativeLayout>
 
