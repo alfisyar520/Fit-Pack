@@ -2,13 +2,16 @@ package com.example.fitpack.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -99,7 +102,32 @@ public class HomeDokterActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        //getMenuInflater().inflate(R.menu.menu, menu);
+
+        /*
+        //getMenuInflater().inflate(R.menu.menu_search, menu);
+        MenuItem menuItem = menu.findItem(R.id.menu_search1);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Search Here!");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                getDataFromFirestoreSearch(s);
+
+                return true;
+            }
+        });
+
+         */
+
         return true;
     }
 
@@ -110,6 +138,25 @@ public class HomeDokterActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(HomeDokterActivity.this, LoginActivity.class));
                 return true;
+            case R.id.menu_search1:
+                SearchView searchView = (SearchView) item.getActionView();
+                searchView.setBackgroundColor(Color.WHITE);
+                searchView.setQueryHint("Search Here!");
+
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String s) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String s) {
+                        getDataFromFirestoreSearch(s);
+
+                        return true;
+                    }
+                });
+
         }
         return false;
     }
@@ -128,6 +175,37 @@ public class HomeDokterActivity extends AppCompatActivity {
                     if (!user.getId().equals(fUser.getUid())){
                         if (!user.getKategori().equals("dokter")){
                             mUsers.add(user);
+                        }
+                    }
+                }
+
+                myAdapter = new ListPostDaftarPasienAdapter(HomeDokterActivity.this, mUsers);
+                recyclerView.setAdapter(myAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getDataFromFirestoreSearch(final String key) {
+        final FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mUsers.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    User user =snapshot.getValue(User.class);
+
+                    if (!user.getId().equals(fUser.getUid())){
+                        if (!user.getKategori().equals("dokter")){
+                            if (user.getUsername().equals(key)){
+                                mUsers.add(user);
+                            }
                         }
                     }
                 }
