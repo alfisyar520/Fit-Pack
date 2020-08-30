@@ -158,7 +158,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-
+        MenuItem menuItem = menu.findItem(R.id.menu_search1);
+        menuItem.setVisible(false);
         return true;
     }
 
