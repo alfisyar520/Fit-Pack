@@ -77,6 +77,38 @@
                         android:paddingRight="16dp"
                         android:paddingBottom="14dp" />
 
+                    <LinearLayout
+                        android:id="@+id/ll_register_pilih_tanggal"
+                        android:orientation="horizontal"
+                        android:background="@drawable/background_edit_text"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_register_tanggal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Tanggal lahir"
+                            android:textSize="18sp"/>
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ic_calendar"
+                            />
+
+
+                    </LinearLayout>
+
+
 
                     <EditText
                         android:id="@+id/input_register_password"

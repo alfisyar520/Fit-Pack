@@ -2,7 +2,9 @@ package com.example.fitpack.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,11 +12,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitpack.Fragment.DatePickerFragment;
 import com.example.fitpack.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,16 +29,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private EditText et_name, et_email, et_password, et_rePassword;
     private Button btn_signUp;
-    private TextView tv_signIn;
-    private Spinner sp_kategori;
+    private TextView tv_signIn, tv_tanggal_lahir;
+    private LinearLayout ll_tanggalLahir;
     private String kategori;
 
     //firebase
@@ -47,12 +54,22 @@ public class RegisterActivity extends AppCompatActivity {
 
         et_name = findViewById(R.id.input_register_name);
         et_email = findViewById(R.id.input_register_email);
+        tv_tanggal_lahir = findViewById(R.id.tv_register_tanggal);
+        ll_tanggalLahir = findViewById(R.id.ll_register_pilih_tanggal);
         et_password = findViewById(R.id.input_register_password);
         et_rePassword = findViewById(R.id.input_register_repassword);
         btn_signUp = findViewById(R.id.btn_register_signUp);
         tv_signIn = findViewById(R.id.tv_register_login);
 
         getIncomingIntent();
+
+        ll_tanggalLahir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker =  new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
 
         tv_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +86,11 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String txt_username = et_name.getText().toString();
                 String txt_email = et_email.getText().toString();
+                String txt_tanggal = tv_tanggal_lahir.getText().toString();
                 String txt_password = et_password.getText().toString();
                 String txt_repassword = et_rePassword.getText().toString();
 
-                if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+                if (TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password) || TextUtils.isEmpty(txt_tanggal)){
                     Toast.makeText(RegisterActivity.this, "All field are required", Toast.LENGTH_SHORT).show();
                 } else if(txt_password.length() < 6){
                     Toast.makeText(RegisterActivity.this, "password must be at least 6 characters", Toast.LENGTH_SHORT).show();
@@ -85,6 +103,17 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
+        tv_tanggal_lahir.setText(currentDateString);
     }
 
     private void getIncomingIntent() {
@@ -108,6 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("username", username);
                             hashMap.put("imageUrl","https://firebasestorage.googleapis.com/v0/b/handycrafts-shop.appspot.com/o/default.png?alt=media&token=a721ee3d-b599-40fc-aab7-f58cadc15861");
                             hashMap.put("kategori", kategori);
+                            hashMap.put("tanggallahir", tv_tanggal_lahir.getText().toString());
 
 
                             databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {

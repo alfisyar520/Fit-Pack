@@ -5,15 +5,17 @@ public class User {
     private String username;
     private String imageUrl;
     private String kategori;
+    private String tglLahir;
 
     public User() {
     }
 
-    public User(String id, String username, String imageUrl, String kategori) {
+    public User(String id, String username, String imageUrl, String kategori, String tglLahir) {
         this.id = id;
         this.username = username;
         this.imageUrl = imageUrl;
         this.kategori = kategori;
+        this.tglLahir = tglLahir;
     }
 
     public String getId() {
@@ -46,5 +48,13 @@ public class User {
 
     public void setKategori(String kategori) {
         this.kategori = kategori;
+    }
+
+    public String getTglLahir() {
+        return tglLahir;
+    }
+
+    public void setTglLahir(String tglLahir) {
+        this.tglLahir = tglLahir;
     }
 }
