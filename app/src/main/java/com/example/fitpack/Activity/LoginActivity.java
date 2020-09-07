@@ -3,6 +3,7 @@ package com.example.fitpack.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -32,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView tv_signUp, tv_forgetPassword;
     private Button btn_login;
 
+    private ProgressDialog pd;
+
     //firebase
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
@@ -47,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login_login);
         tv_signUp = findViewById(R.id.tv_login_signUp);
         tv_forgetPassword = findViewById(R.id.tv_login_forgot);
+
+        tv_forgetPassword.setVisibility(View.GONE);
 
         tv_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +100,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(LoginActivity.this, "All field are required", Toast.LENGTH_SHORT).show();
                 } else {
+                    pd = new ProgressDialog(LoginActivity.this);
+                    pd.setMessage("Please wait.. ");
+                    pd.show();
                     auth.signInWithEmailAndPassword(txt_email, txt_password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -112,14 +120,14 @@ public class LoginActivity extends AppCompatActivity {
                                                     Intent toDashboard = new Intent(LoginActivity.this, DashboardActivity.class);
                                                     toDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                     startActivity(toDashboard);
+                                                    pd.dismiss();
                                                     finish();
-                                                    //pd.dismiss();
                                                 }else{
                                                     Intent toDashboard = new Intent(LoginActivity.this, HomeDokterActivity.class);
                                                     toDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                     startActivity(toDashboard);
+                                                    pd.dismiss();
                                                     finish();
-                                                    //pd.dismiss();
                                                 }
                                             }
 
@@ -131,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Authentification failed!", Toast.LENGTH_SHORT).show();
-                                        //pd.dismiss();
+                                        pd.dismiss();
                                     }
                                 }
                             });

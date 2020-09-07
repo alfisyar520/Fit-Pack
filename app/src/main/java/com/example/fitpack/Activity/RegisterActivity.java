@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -42,6 +43,8 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     private TextView tv_signIn, tv_tanggal_lahir;
     private LinearLayout ll_tanggalLahir;
     private String kategori;
+
+    private ProgressDialog pd;
 
     //firebase
     FirebaseAuth auth;
@@ -121,6 +124,9 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
     }
 
     private void register(final String username, String email, final String password){
+        pd = new ProgressDialog(RegisterActivity.this);
+        pd.setMessage("Please wait.. ");
+        pd.show();
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -149,12 +155,14 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             Toast.makeText(RegisterActivity.this, "Register Anda Berhasil!", Toast.LENGTH_SHORT).show();
                                             startActivity(intent);
+                                            pd.dismiss();
                                             finish();
                                         } else {
                                             Intent intent = new Intent(RegisterActivity.this, HomeDokterActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             Toast.makeText(RegisterActivity.this, "Register Anda Berhasil!", Toast.LENGTH_SHORT).show();
                                             startActivity(intent);
+                                            pd.dismiss();
                                             finish();
                                         }
 
@@ -163,7 +171,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                             });
                         } else{
                             Toast.makeText(RegisterActivity.this, "Register Anda Gagal!", Toast.LENGTH_SHORT).show();
-                            //pd.dismiss();
+                            pd.dismiss();
                         }
                     }
                 });

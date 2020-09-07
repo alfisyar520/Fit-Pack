@@ -40,7 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
         btn_sekarang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, BtActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, PairedActivity.class);
                 startActivity(intent);
             }
         });
