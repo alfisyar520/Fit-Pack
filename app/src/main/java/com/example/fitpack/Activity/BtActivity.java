@@ -104,17 +104,16 @@ public class BtActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getDataAll();
-                coba_hasil = tv_coba.getText().toString();
-                Toast.makeText(BtActivity.this, coba_hasil, Toast.LENGTH_SHORT).show();
-                /*
+                //coba_hasil = tv_coba.getText().toString();
+                //Toast.makeText(BtActivity.this, coba_hasil, Toast.LENGTH_SHORT).show();
+
                 tambahHasilTest();
                 Intent intent = new Intent(BtActivity.this, HomeActivity.class);
                 intent.putExtra("hasilDeteksi",hasilDeteksi);
                 intent.putExtra("tanggal", currentDate);
+                Disconnect();
                 startActivity(intent);
                 finish();
-                Disconnect();
-                 */
             }
         });
     }
@@ -203,7 +202,6 @@ public class BtActivity extends AppCompatActivity {
             {
                 msg("Connected.");
                 isBtConnected = true;
-                //getData();
             }
             progress.dismiss();
         }
@@ -224,11 +222,13 @@ public class BtActivity extends AppCompatActivity {
                 for (int i = 0; i < 1 ; i++){
                     char baru = (char) inputStream.read();
                     //kumpulan.add(String.valueOf(baru));
-                    tv_coba.append(String.valueOf(baru));
+                    //tv_coba.append(String.valueOf(baru));
+                    hasilDeteksi = String.valueOf(baru);
                     //tv3.append("\n");
                 }
             }catch (IOException e){
-                tv_coba.setText(String.valueOf(e));
+                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+                //tv_coba.setText(String.valueOf(e));
             }
 
 

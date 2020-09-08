@@ -77,7 +77,7 @@ public class HerbalFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_herbal, container, false);
         inisialisasi(view);
 
-        if (hasilDeteksi.equals("1") || hasilDeteksi.equals("2") || hasilDeteksi.equals("3")){
+        if (hasilDeteksi.equals("A") || hasilDeteksi.equals("B") || hasilDeteksi.equals("C")){
             tv_herbal1.setText("Anda bisa menggunakan rebusan air daun sirih untuk menjaga kebersihan organ kewanitaan anda");
             tv_herbal2.setVisibility(view.GONE);
             tv_herbal3.setVisibility(view.GONE);

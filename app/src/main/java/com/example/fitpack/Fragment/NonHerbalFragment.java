@@ -74,13 +74,13 @@ public class NonHerbalFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_non_herbal, container, false);
         inisialisasi(view);
 
-        if (hasilDeteksi.equals("1") || hasilDeteksi.equals("2") || hasilDeteksi.equals("3")){
+        if (hasilDeteksi.equals("A") || hasilDeteksi.equals("B") || hasilDeteksi.equals("C")){
             tv_nonHerbal1.setText("Anda tidak memerlukan obat untuk masalah keputihan normal anda");
             tv_nonHerbal2.setVisibility(view.GONE);
             tv_nonHerbal3.setVisibility(view.GONE);
             tv_nonHerbal4.setVisibility(view.GONE);
             tv_nonHerbal5.setVisibility(view.GONE);
-        } else if (hasilDeteksi.equals("4")){
+        } else if (hasilDeteksi.equals("D")){
             tv_nonHerbal1.setText("Fluconazole 150-200 mg sehari selama tiga hari. Setelah itu mengkonsumsi fluconazole 200 mg selama 1 minggu sekali untuk 2 bulan, dilanjutkan 200 mg fluconazole untuk 2 minggu sekali selama 4 bulan, dilanjutkan 200 mg fluconazole selama satu bulan sekali untuk 6 bulan.");
             tv_nonHerbal2.setText("Itraconazole 20 mg 2 kali sehari untuk 1 hari");
             tv_nonHerbal3.setText("Untuk pemakaian luar dapat menggunakan :\n" +
@@ -88,7 +88,7 @@ public class NonHerbalFragment extends Fragment {
                     "-\tKetoconazole cream 2% diaplikasikan 1-2 kali sehari");
             tv_nonHerbal4.setVisibility(view.GONE);
             tv_nonHerbal5.setVisibility(view.GONE);
-        } else if (hasilDeteksi.equals("5") || hasilDeteksi.equals("6")){
+        } else if (hasilDeteksi.equals("E") || hasilDeteksi.equals("F")){
             tv_nonHerbal1.setText("Obat untuk dosis standart");
             tv_nonHerbal1.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -197,7 +197,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void inisialisasiWarnaBauIndikasi(){
-        if (hasilDeteksi.equals("1")){
+        if (hasilDeteksi.equals("A")){
             tv_coklat.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);
             tv_putihKeju.setVisibility(View.GONE);
@@ -208,7 +208,7 @@ public class HomeActivity extends AppCompatActivity {
             tv_hasil_indikasi.setText("Normal");
             iv_bau_kosong.setVisibility(View.GONE);
             iv_warna_kosong.setVisibility(View.GONE);
-        } else if (hasilDeteksi.equals("2")){
+        } else if (hasilDeteksi.equals("B")){
             tv_bening.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);
             tv_putihKeju.setVisibility(View.GONE);
@@ -219,7 +219,7 @@ public class HomeActivity extends AppCompatActivity {
             tv_hasil_indikasi.setText("Normal");
             iv_bau_kosong.setVisibility(View.GONE);
             iv_warna_kosong.setVisibility(View.GONE);
-        } else if (hasilDeteksi.equals("3")){
+        } else if (hasilDeteksi.equals("C")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
             tv_putihKeju.setVisibility(View.GONE);
@@ -230,7 +230,7 @@ public class HomeActivity extends AppCompatActivity {
             tv_hasil_indikasi.setText("Normal");
             iv_bau_kosong.setVisibility(View.GONE);
             iv_warna_kosong.setVisibility(View.GONE);
-        } else if (hasilDeteksi.equals("4")){
+        } else if (hasilDeteksi.equals("D")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);
@@ -241,7 +241,7 @@ public class HomeActivity extends AppCompatActivity {
             tv_hasil_indikasi.setText("Abnormal");
             iv_bau_kosong.setVisibility(View.GONE);
             iv_warna_kosong.setVisibility(View.GONE);
-        } else if (hasilDeteksi.equals("5")){
+        } else if (hasilDeteksi.equals("E")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);
@@ -252,7 +252,7 @@ public class HomeActivity extends AppCompatActivity {
             tv_hasil_indikasi.setText("Abnormal");
             iv_bau_kosong.setVisibility(View.GONE);
             iv_warna_kosong.setVisibility(View.GONE);
-        } else if (hasilDeteksi.equals("6")){
+        } else if (hasilDeteksi.equals("F")){
             tv_bening.setVisibility(View.GONE);
             tv_coklat.setVisibility(View.GONE);
             tv_putihSusu.setVisibility(View.GONE);

@@ -84,7 +84,7 @@ public class SaranActivity extends AppCompatActivity {
         tv_khusus1 = findViewById(R.id.tv_saran_khusus_1);
         tv_khusus2 = findViewById(R.id.tv_saran_khusus_2);
 
-        if (hasilDeteksi.equals("1") || hasilDeteksi.equals("2") || hasilDeteksi.equals("3")){
+        if (hasilDeteksi.equals("A") || hasilDeteksi.equals("B") || hasilDeteksi.equals("C")){
             tv_khusus1.setText("Tidak ada penanganan khusus. Tetap jaga kebersihan organ kewanitaan dan usahakan untuk tetap kering. Hal-hal yang bisa dilakukan :");
             tv_khusus2.setText("-\tJangan menggunakan pembersih daerah kewanitaan yang memiliki kandungan alkohol dan parfume\n" +
                     "-\tGunakan celana dalam yang tidak ketat dan dapat menyerap keringat\n" +
@@ -92,12 +92,12 @@ public class SaranActivity extends AppCompatActivity {
                     "-\tJangan gunakan pantyliner atapun tisu toilet yang mengandung parfume\n" +
                     "-\tHindari terlalu sering dengan jangka waktu yang lama ketika berendam dengan air panas\n" +
                     "-\tMakan makanan yang bergizi serta konsumsi yogurt ataupun suplemen yang mengandung lactobacillus");
-        } else if (hasilDeteksi.equals("4")){
+        } else if (hasilDeteksi.equals("D")){
             tv_khusus1.setText("Hal yang harus dilakukan :");
             tv_khusus2.setText("-\tHindari menggunakan celana dalam yang ketat \n" +
                     "-\tPilih bahan celana dalam yang dapat menyerap keringat\n" +
                     "-\tGunakan pelembab vagina untuk yang memiliki kulit kering kemudian dibilas, pelembab ini sebagai pengganti sabun.");
-        } else if (hasilDeteksi.equals("5") || hasilDeteksi.equals("6")){
+        } else if (hasilDeteksi.equals("E") || hasilDeteksi.equals("F")){
             tv_khusus1.setText("Hal yang harus dilakukan :");
             tv_khusus2.setText("Hindari untuk berhubungan sexual dengan pasangan hingga pengobatan selesai atau hingga dinyatakan sembuh");
         } else {
