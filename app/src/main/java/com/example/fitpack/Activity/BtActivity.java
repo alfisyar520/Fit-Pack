@@ -81,7 +81,7 @@ public class BtActivity extends AppCompatActivity {
         getIncomingIntent();
 
         btn_ambil = findViewById(R.id.btn_bt_ambil);
-        tv_koneksi = findViewById(R.id.tv_bt_2);
+        tv_koneksi = findViewById(R.id.tv_bt_1);
         tv_coba = findViewById(R.id.tv_bt_2);
 
         new ConnectBT().execute(); //Call the class to connect
@@ -103,6 +103,7 @@ public class BtActivity extends AppCompatActivity {
         btn_ambil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getDataAll();
                 coba_hasil = tv_coba.getText().toString();
                 Toast.makeText(BtActivity.this, coba_hasil, Toast.LENGTH_SHORT).show();
                 /*
@@ -203,7 +204,6 @@ public class BtActivity extends AppCompatActivity {
                 msg("Connected.");
                 isBtConnected = true;
                 //getData();
-                getDataAll();
             }
             progress.dismiss();
         }
@@ -221,7 +221,7 @@ public class BtActivity extends AppCompatActivity {
             inputStream.skip(inputStream.available());
 
             try {
-                for (int i = 0; i < 2 ; i++){
+                for (int i = 0; i < 1 ; i++){
                     char baru = (char) inputStream.read();
                     //kumpulan.add(String.valueOf(baru));
                     tv_coba.append(String.valueOf(baru));
