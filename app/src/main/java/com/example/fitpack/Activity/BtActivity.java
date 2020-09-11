@@ -39,9 +39,9 @@ import java.util.UUID;
 public class BtActivity extends AppCompatActivity {
 
     private Button btn_ambil;
-    private TextView tv_koneksi, tv_coba;
+    private TextView tv_koneksi, tv_coba, judul;
     private String mUser, currentDate, currentTime, idBt;
-    private String hasilDeteksi = "7";
+    private String hasilDeteksi;
 
     private String coba_hasil;
 
@@ -83,6 +83,9 @@ public class BtActivity extends AppCompatActivity {
         btn_ambil = findViewById(R.id.btn_bt_ambil);
         tv_koneksi = findViewById(R.id.tv_bt_1);
         tv_coba = findViewById(R.id.tv_bt_2);
+        judul = findViewById(R.id.tv_bt_name);
+
+        judul.setText("BLUETOOTH");
 
         new ConnectBT().execute(); //Call the class to connect
         tv_koneksi.setText("Connected\n"+idBt);
@@ -105,7 +108,7 @@ public class BtActivity extends AppCompatActivity {
             public void onClick(View view) {
                 getDataAll();
                 //coba_hasil = tv_coba.getText().toString();
-                //Toast.makeText(BtActivity.this, coba_hasil, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BtActivity.this, hasilDeteksi, Toast.LENGTH_SHORT).show();
 
                 tambahHasilTest();
                 Intent intent = new Intent(BtActivity.this, HomeActivity.class);
